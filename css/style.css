@@ -1,0 +1,12 @@
+.navbar-brand2 {
+    float: left;
+    padding: 19.5px 15px;
+    font-size: 19px;
+    line-height: 21;
+    height: 100px;
+}
+
+table>tbody>tr>td {
+    border-style: ridge;
+
+}
