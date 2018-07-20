@@ -28,7 +28,7 @@
 		$agama = htmlspecialchars($data["agama"]);
 
 
-		$query = "INSERT INTO pegawai 
+		$query = "INSERT INTO pegawai
 					VALUES
 					(null,null,null,null,'$nip','$nama','$ttl','$alamat','$no_telp','$gender','$agama')
 				";

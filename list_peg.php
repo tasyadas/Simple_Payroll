@@ -1,4 +1,4 @@
-<?php 
+<?php
 //koneksi ke function
 require 'function.php';
 
@@ -8,12 +8,11 @@ require 'function.php';
 $jmlhDataPerHalaman = 10;
 $jumlahData = count(query("SELECT * FROM pegawai"));
 $jumlahHalaman = ceil($jumlahData / $jmlhDataPerHalaman);
- 
+
 $halamanAktif = ( isset($_GET["halaman"]) ) ?  $_GET["halaman"] : 1;
 $awalData = ( $jmlhDataPerHalaman * $halamanAktif ) - $jmlhDataPerHalaman;
 
 $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
-
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +32,7 @@ $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
 
 </head>
 <body>
-	
+
 	<a href="tambah.php" target="_blank"> Tambah |</a>
 	<a href="cetak.php" target="_blank"> Cetak</a>
 
@@ -42,7 +41,7 @@ $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
 
 <!-- navigasi -->
 <?php for ($i=1; $i <= $jumlahHalaman ; $i++) : ?>
-	<a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+	<a href="<?php echo $_SERVER['REQUEST_URI'] ?>&halaman=<?= $i; ?>"><?= $i; ?></a>
 <?php endfor; ?>
 
 <table border="2" cellpadding="10" cellspacing="0" style="border-color:  white;">
@@ -74,7 +73,7 @@ $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
 			<strong>Aksi</strong>
 		</td>
 	</tr>
-	
+
 	<?php foreach( $pegawai as $row ) : ?>
 	<tr>
 		<td style="text-align: center;"><?= $row["nip"]; ?></td>
