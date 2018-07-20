@@ -11,7 +11,7 @@ $jumlahHalaman = ceil($jumlahData / $jmlhDataPerHalaman);
 
 $halamanAktif = ( isset($_GET["halaman"]) ) ?  $_GET["halaman"] : 1;
 $awalData = ( $jmlhDataPerHalaman * $halamanAktif ) - $jmlhDataPerHalaman;
-
+$halListPegUri = explode('&', $_SERVER['REQUEST_URI'], 2)[0];
 $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
 ?>
 
@@ -41,7 +41,7 @@ $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
 
 <!-- navigasi -->
 <?php for ($i=1; $i <= $jumlahHalaman ; $i++) : ?>
-	<a href="<?php echo $_SERVER['REQUEST_URI'] ?>&halaman=<?= $i; ?>"><?= $i; ?></a>
+	<a href="<?php echo $halListPegUri ?>&halaman=<?= $i; ?>"><?= $i; ?></a>
 <?php endfor; ?>
 
 <table border="2" cellpadding="10" cellspacing="0" style="border-color:  white;">
