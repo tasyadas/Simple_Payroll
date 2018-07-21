@@ -6,13 +6,13 @@ require 'function.php';
 //pagination
 //konfigurasi
 $jmlhDataPerHalaman = 10;
-$jumlahData = count(query("SELECT * FROM pegawai"));
+$jumlahData = count(query("SELECT * FROM user"));
 $jumlahHalaman = ceil($jumlahData / $jmlhDataPerHalaman);
  
 $halamanAktif = ( isset($_GET["halaman"]) ) ?  $_GET["halaman"] : 1;
 $awalData = ( $jmlhDataPerHalaman * $halamanAktif ) - $jmlhDataPerHalaman;
 $halListPegUri = explode('&', $_SERVER['REQUEST_URI'], 2)[0];
-$pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
+$user = query("SELECT * FROM user LIMIT $awalData,$jmlhDataPerHalaman");
 
 ?>
 
@@ -20,7 +20,7 @@ $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>List Pegawai</title>
+	<title>List user</title>
 
 	<style type="text/css">
         table>tbody>tr>td {
@@ -28,46 +28,44 @@ $pegawai = query("SELECT * FROM pegawai LIMIT $awalData,$jmlhDataPerHalaman");
     		font-size: 15px;
 			font-style: italic;
 			font-variant: small-caps;
-			padding: 5px 50px;
+			padding: 12px;
 		}
     </style>
 
 </head>
 <body>
 	
-	<a href="<?php echo $_SERVER['REQUEST_URI'] ?>&hal=tambah"> Tambah </a>
+	<a href="<?php echo $_SERVER['REQUEST_URI'] ?>&hal=registrasi">Tambah</a>
 
-	<h3>Data Pegawai</h3>
+	<h3>Data user</h3>
 <br><br>
 
 <!-- navigasi -->
 <?php for ($i=1; $i <= $jumlahHalaman ; $i++) : ?>
-	<!-- <a href="?halaman=<?= $i; ?>"><?= $i; ?></a> -->
-	<!-- <a href="<?php echo $_SERVER['REQUEST_URI'] ?>&halaman=<?= $i; ?>"><?= $i; ?></a> -->
 	<a href="<?php echo $halListPegUri ?>&halaman=<?= $i; ?>"><?= $i; ?></a>
 <?php endfor; ?>
 
 <table border="2" cellpadding="10" cellspacing="0" style="border-color:  white;">
 	<tr style="text-align: center;">
 		<td>
-			<strong>NIP</strong>
+			<strong>ID</strong>
 		</td>
 		<td>
-			<strong>Nama</strong>
+			<strong>Username</strong>
 		</td>
 		<td>
-			<strong>Jabatan</strong>
+			<strong>Password</strong>
 		</td>
 		<td>
 			<strong>Aksi</strong>
 		</td>
 	</tr>
 	
-	<?php foreach( $pegawai as $row ) : ?>
+	<?php foreach( $user as $row ) : ?>
 	<tr>
-		<td style="text-align: center;"><?= $row["nip"]; ?></td>
-		<td><?= $row["nama"]; ?></td>
-		<td><?= $row["status"]; ?></td>
+		<td style="text-align: center;"><?= $row["id"]; ?></td>
+		<td style="text-align: center;"><?= $row["username"]; ?></td>
+		<td style="text-align: center;"><?= $row["password"]; ?></td>
 		<td>
 			<a href='cetak.php?nip=<?= $row["nip"]; ?>'>cetak</a> |
 			<a href='ubah.php?nip=<?= $row["nip"]; ?>'>ubah</a> |

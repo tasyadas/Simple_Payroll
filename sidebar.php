@@ -10,7 +10,7 @@
 				echo '<div class="list-group">';
 				echo'<a href="index.php?hal='.$id.'" class="list-group-item">'.$val.'</a>';
 												
-			} for($i = 0; $i <= 7; $i++){
+			} for($i = 0; $i <= 10; $i++){
 				echo '</div>';
 			}
-		?>		
+		?>

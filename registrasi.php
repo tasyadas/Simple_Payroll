@@ -18,21 +18,23 @@ if( isset($_POST["register"]) ) {
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Registrasi</title>
+	<title>Tambah User</title>
 	<style>
 		label{
 			display: block;
 		}
 		input {
     		width: 50%;
+    		border-radius: 3px;
+    		padding: 5px;
 		}
 	</style>
 </head>
 <body>
 
-	<h1>Registrasi</h1>
+	<h3>Tambah User</h3>
 
-	<form action="" method="post">
+	<form action="" method="post" style="margin-top: 50px; margin-left: 80px;">
 		<ul style="list-style: none;">
 			<li>
 				<label for="username">USERNAME</label>
@@ -47,7 +49,7 @@ if( isset($_POST["register"]) ) {
 				<input type="password" name="password2" id="password2">
 			</li>
 			<li>
-				<button type="submit" name="register" style="background-color: #375a7f; margin-top:  15px;">Register</button>
+				<button type="submit" name="register" style="background-color: #375a7f; margin-top:  15px;">Tambah</button>
 			</li>
 		</ul>
 	</form>

@@ -28,13 +28,44 @@
 		$agama = htmlspecialchars($data["agama"]);
 
 
-		$query = "INSERT INTO pegawai
+		$query = "INSERT INTO pegawai 
 					VALUES
 					(null,null,null,null,'$nip','$nama','$ttl','$alamat','$no_telp','$gender','$agama')
 				";
 
 		return mysqli_query($conn, $query);
 	}
+
+		function tambah_jab($data){
+		global $conn;
+
+		$id_jab = htmlspecialchars($data["id_jab"]);
+		$jabatan = htmlspecialchars($data["jabatan"]);
+
+
+		$query = "INSERT INTO jabatan 
+					VALUES
+					('$id_jab','$jabatan')
+				";
+
+		return mysqli_query($conn, $query);
+	}
+
+		function add_pot($data){
+		global $conn;
+
+		$id_potongan = htmlspecialchars($data["id_potongan"]);
+		$jabatan = htmlspecialchars($data["jabatan"]);
+
+
+		$query = "INSERT INTO jabatan 
+					VALUES
+					('$id_jab','$jabatan')
+				";
+
+		return mysqli_query($conn, $query);
+	}
+
 
 	function hapus($nip) {
 		global $conn;

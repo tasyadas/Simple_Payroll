@@ -6,10 +6,9 @@
 
 		// tangkap request menu di url
 		$hal = $_GET['hal'];
-		// echo "<script> alert('".$mysqli_error($conn)."') </script>";;
 
 			if (!empty($hal)) {
-				include_once $link[$hal];
+				include_once ($link[$hal]);
 			}
 			else{
 					include_once 'home.php';

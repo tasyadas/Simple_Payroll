@@ -1,7 +1,7 @@
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
+				<div class="navbar-header" style="padding: 8px;">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand2" href="#"><img src="img/Payroll.png" width="200" height="80" class="d-inline-block align-top" alt="">PT. Nusantara Alam Bahari</a>
 				</div>
 				
